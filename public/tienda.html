@@ -171,7 +171,7 @@ async function probe() {
 async function unlock() {
   const k = $("gatekey").value.trim();
   if (!k) return;
-  localStorage.setItem("don_ramon_store_key", k);
+  localStorage.setItem("la_esquina_store_key", k);
   $("gateerr").textContent = "";
   if (await probe()) { boot(); }
   else { $("gateerr").textContent = "❌ Clave incorrecta. Intenta de nuevo."; }
