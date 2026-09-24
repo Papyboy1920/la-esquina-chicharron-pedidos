@@ -1,6 +1,6 @@
 // ============================================================
 // CATÁLOGO SEMILLA — La Esquina del Chicharrón (Miami, FL)
-// 13784 SW 177th Ave, Miami, FL 33196 · 786-546-7982
+// 169 NE 25th St, Wynwood, Miami, FL 33137 · 305-645-1997
 // IG: @laesquinadelchicharron
 // Menú real de Miami extraído de su flyer oficial (sep-2026).
 // Todos los precios incluyen sales tax. Moneda: USD.
