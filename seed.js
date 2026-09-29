@@ -4,11 +4,13 @@
 // IG: @laesquinadelchicharron
 // Menú real de Miami extraído de su flyer oficial (sep-2026).
 // Todos los precios incluyen sales tax. Moneda: USD.
-// Fotos: Portal (foodhero-enhanced, recortadas). No generar con IA.
+// Fotos: Portal (foodhero-enhanced, recortadas) + 10 fotos IA generadas el
+// 29-sep-2026 por instrucción directa de Portal ("pimp it out, don't repeat"):
+// cada artículo tiene UNA imagen única, sin repeticiones en el catálogo.
 // CATALOG_VERSION: subir para re-sembrar en el servidor.
 // ============================================================
 
-const CATALOG_VERSION = 1;
+const CATALOG_VERSION = 2;
 
 const SEED_CATALOG = {
   departments: [
@@ -24,7 +26,7 @@ const SEED_CATALOG = {
           items: [
             { id: "canasticas-campesinas", name: "Canasticas Campesinas", price: 20.00, unit: "plato", active: true, image: "hero-chicharron-mojo.jpg",
               desc: "Tres canasticas de plátano rellenas de chicharrón, guacamole y pico de gallo." },
-            { id: "bollitos", name: "Bollitos", price: 12.00, unit: "plato", active: true, image: "chicharron-oven.jpg",
+            { id: "bollitos", name: "Bollitos", price: 12.00, unit: "plato", active: true, image: "chicharron-oven.jpg", tag: "🌿 Vegetariano",
               desc: "Servicio de 3 bollitos de yuca rellenos de queso." },
             { id: "crunchy-tacos", name: "Crunchy Tacos", price: 19.99, unit: "plato", active: true, image: "chicharron-verdad.jpg",
               desc: "Servicio de 3 tacos de chicharrón light." },
@@ -44,11 +46,11 @@ const SEED_CATALOG = {
           id: "combos-casa",
           name: "Combos",
           items: [
-            { id: "combo-chicharron-light", name: "Chicharrón Light", price: 25.99, unit: "combo", active: true, image: "hero-chicharron-mojo.jpg",
+            { id: "combo-chicharron-light", name: "Chicharrón Light", price: 25.99, unit: "combo", active: true, image: "combo-chicharron-light.jpg",
               desc: "Chicharrón light 100% al horno, servido con moro, yuquita, tostones o maduro, más pico de gallo y mojito criollo." },
-            { id: "combo-longaniza", name: "Longaniza", price: 21.99, unit: "combo", active: true, image: "pica-longa.jpg",
+            { id: "combo-longaniza", name: "Longaniza", price: 21.99, unit: "combo", active: true, image: "combo-longaniza.jpg",
               desc: "Longaniza criolla con moro, yuquita, tostones o maduro, más pico de gallo y mojito criollo." },
-            { id: "combo-carnita", name: "Carnita", price: 21.99, unit: "combo", active: true, image: "chicharron-verdad.jpg",
+            { id: "combo-carnita", name: "Carnita", price: 21.99, unit: "combo", active: true, image: "combo-carnita.jpg",
               desc: "Carnita salada con moro, yuquita, tostones o maduro, más pico de gallo y mojito criollo." },
             { id: "pica-longa", name: "Pica Longa", price: 34.99, unit: "combo", active: true, tag: "⭐ La combinación perfecta", image: "pica-longa.jpg",
               desc: "Un mix de todas las carnes + 2 guarniciones a elegir: moro, yuquita, tostones o maduro, más pico de gallo + mojito criollo." }
@@ -70,7 +72,7 @@ const SEED_CATALOG = {
               desc: "2 mofongos medianos acompañados de chicharrón + pico de gallo + mojito." },
             { id: "mofongo-cremoso", name: "Mofongo Cremoso", price: 26.99, unit: "plato", active: true, tag: "⭐ El favorito", image: "mofongo-cremoso.jpg",
               desc: "Mofongo grande bañado en salsa Alfredo, acompañado de chicharrón, topping de tocineta + pico de gallo + mojito criollo." },
-            { id: "mofongo-mocano", name: "Mofongo Mocano", price: 26.99, unit: "plato", active: true, image: "mofongo-box.jpg",
+            { id: "mofongo-mocano", name: "Mofongo Mocano", price: 26.99, unit: "plato", active: true, image: "mofongo-mocano.jpg",
               desc: "Mofongo grande bañado en queso fundido, topping de tocineta y acompañado de chicharrón + pico de gallo + mojito criollo." }
           ]
         }
@@ -111,17 +113,17 @@ const SEED_CATALOG = {
           id: "proteinas-libra",
           name: "Por libra",
           items: [
-            { id: "prot-chicharron-half", name: "Chicharrón Light · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "chicharron-verdad.jpg",
+            { id: "prot-chicharron-half", name: "Chicharrón Light · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "prot-chicharron-half.jpg",
               desc: "Media libra de chicharrón light, 100% al horno." },
-            { id: "prot-chicharron-lb", name: "Chicharrón Light · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "chicharron-tray.jpg",
+            { id: "prot-chicharron-lb", name: "Chicharrón Light · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "prot-chicharron-lb.jpg",
               desc: "Una libra de chicharrón light, 100% al horno." },
-            { id: "prot-longaniza-half", name: "Longaniza · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "chicharron-oven.jpg",
+            { id: "prot-longaniza-half", name: "Longaniza · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "prot-longaniza-half.jpg",
               desc: "Media libra de longaniza criolla." },
-            { id: "prot-longaniza-lb", name: "Longaniza · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "pica-longa.jpg",
+            { id: "prot-longaniza-lb", name: "Longaniza · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "prot-longaniza-lb.jpg",
               desc: "Una libra de longaniza criolla." },
-            { id: "prot-carnita-half", name: "Carnita · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "chicharron-oven.jpg",
+            { id: "prot-carnita-half", name: "Carnita · 1/2 lb", price: 12.00, unit: "1/2 lb", active: true, image: "prot-carnita-half.jpg",
               desc: "Media libra de carnita salada de cerdo." },
-            { id: "prot-carnita-lb", name: "Carnita · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "chicharron-verdad.jpg",
+            { id: "prot-carnita-lb", name: "Carnita · 1 lb", price: 22.00, unit: "1 lb", active: true, image: "prot-carnita-lb.jpg",
               desc: "Una libra de carnita salada de cerdo." }
           ]
         }
